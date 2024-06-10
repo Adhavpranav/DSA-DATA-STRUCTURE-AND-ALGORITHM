@@ -5,7 +5,6 @@ struct stack
    char a[MAX];
    int top;
 }s;
-
 void init()
 {
     s.top=-1;
@@ -17,7 +16,6 @@ int isfull()
     else
     return 0;
 }
-
 int isempty()
 {
     if(s.top==-1)
@@ -25,11 +23,10 @@ int isempty()
     else
     return 0;
 }
-
 void push(char c)
 {
     if(isfull())
-    printf("\nSTACK IS FULL ..!");
+    printf("\nSTACK IS FULL..!");
     else
     {
         s.top++;
@@ -40,19 +37,18 @@ void pop()
 {
     char val;
     if(isempty())
-    printf("\nStack is empty..!");
+    printf("\nSTACK IS EMPTY..!");
     else
     {
         val=s.a[s.top];
         s.top--;
     }
  }
-
  int main()
  {
     char s1[20];
     int i;
-    printf("\nEnter infix expression:");
+    printf("\nENTER INFIX EXPRESSION:");
     gets(s1);
     init();
     for(i=0;s1[i]!='\0';i++)
@@ -63,9 +59,7 @@ void pop()
         pop();
     }
     if(isempty())
-    printf("\nExpression is fully paranthesis........");
+    printf("\nEXPRESSION IS FULLY PARENTHESIS.!");
     else
-    printf("\nExpression is not fully paranthesis");
+    printf("\nEXPRESSION IS NOT FULLY PARENTHESIS.!");
  }
-
-
