@@ -1,30 +1,34 @@
-#include <stdio.h>
+#include<stdio.h>
+
+int linear_Search(int array[],int limit,int *key)
+{   
+    int i;
+    for(i=0;i<limit;i++)
+    {
+        if(array[i]==(*key))
+        return ++i;
+    }
+        return -1;
+}
+
+void accept(int array[],int limit,int *key)
+{
+    printf("\nENTER ELEMENTS:");
+    for(int i=0;i<limit;i++)
+    scanf("%d",&array[i]);
+    printf("\nENTER NUMBER TO FIND:");
+    scanf("%d",key);
+}
+
 int main()
 {
-    int limit, array[100], i, num;
-    printf("ENTER LIMIT: ");
-    scanf("%d", &limit);
-    printf("\nENTER ARRAY ELEMENTS: ");
-    for (i = 0; i < limit; i++)
-    {
-        scanf("%d", &array[i]);
-    }
-    printf("\nENTER NUMBER FOR SEARCH: ");
-    scanf("%d", &num);
-    for (i = 0; i < limit; i++)
-    {
-        if (array[i] == num)
-        {
-            break;
-        }
-    }
-    if (i == limit)
-    {
-        printf("\nNUMBER IS NOT FOUND\n");
-    }
+    int array[100],limit,key;
+    printf("\nENTER LIMIT:");
+    scanf("%d",&limit);
+    accept(array,limit,&key);
+    int result=linear_Search(array,limit,&key);
+    if(result==-1)
+    printf("\n%d IS NOT FOUND IN ARRAY.",key);
     else
-    {
-        printf("\nNUMBER IS FOUND\n");
-    }
-    return 0;
+    printf("\n%d IS FOUND AT %d POSITION IN ARRAY.",key,result);
 }
