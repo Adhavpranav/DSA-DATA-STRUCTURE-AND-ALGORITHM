@@ -18,7 +18,6 @@ struct node *create(struct node *head)
         newnode = (struct node *)malloc(sizeof(struct node));
         printf("ENTER VALUE:");
         scanf("%d", &newnode->data);
-        newnode->next = NULL;
         if (head == NULL)
         {
             head = temp = newnode;
