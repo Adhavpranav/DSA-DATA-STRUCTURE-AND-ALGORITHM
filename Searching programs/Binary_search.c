@@ -1,48 +1,41 @@
-#include <stdio.h>
+#include<stdio.h>
+void accept(int array[],int limit)
+{
+    printf("\nENTER ELEMENTS OF AN ARRAY:");
+    for(int i=0;i<limit;i++)
+    scanf("%d",&array[i]);
+}
+
+int binary_search(int array[],int limit,int key)
+{
+    int top,mid,bottom;
+    top=0;
+    bottom=limit-1;
+    while(top<=bottom)
+    {
+    mid=(top+bottom)/2;
+    if(array[mid]==key)
+    return mid;
+    else if(array[mid]<key)
+    top=mid+1;
+    else
+    bottom=mid-1;
+    }
+    return -1;
+}
+
 int main()
 {
-	int n, array[100], i, top, bottom, mid, num, flag = 0,pass,temp;
-	printf("ENTER LIMIT:");
-	scanf("%d", &n);
-	printf("\nENTER ELEMENTS OF AN ARRAY:");
-	for (i = 0; i < n; i++)
-	{
-		scanf("%d", &array[i]);
-	}
-	 for (pass = 1; pass < n; pass++)
-    {
-        for (i = 0; i < n - pass; i++)
-        {
-            if (array[i] > array[i + 1])
-            {
-                temp= array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = temp;
-            }
-        }
-    }
-	printf("\nENTER NO FOR SEARCH:");
-	scanf("%d", &num);
-	top = 0;	
-	bottom = n - 1;
-	while (top <= bottom)
-	{
-		mid = (top + bottom) / 2;
-		if (num == array[mid])
-		{
-			flag = 1;
-			break;
-		}
-		if (num > array[mid])
-		{
-			top = mid + 1;
-		}
-		else
-			bottom = mid - 1;
-	}
-	if (flag == 1)
-		printf("\nNUMBER IS FOUND");
-	else
-		printf("\nNUMBER IS NOT FOUND");
-	return 0;
+    int array[100],limit,key;
+    printf("ENTER LIMIT:");
+    scanf("%d",&limit);
+    accept(array,limit);
+    printf("\nENTER NUMBER FOR SEARCH:");
+    scanf("%d",&key);
+    int result=binary_search(array,limit,key);
+    if(result!=-1)
+    printf("\nNUMBER IS FOUND AT %d POSITION",result);
+    else
+    printf("\nNUMBER IS NOT FOUND");
+    return 0;
 }
