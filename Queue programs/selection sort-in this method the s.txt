@@ -1,0 +1,5 @@
+selection sort-in this method the set is divided into 2 set ,sorted and unsorted.initially 
+sorted set is empty& unsorted set if full.we select the smallest element from the unsorted set &
+add it at the end of the sorted set.exchange it with the first element of the unsorted set.after 
+each exchange sorted set grows by 1 element & unsorted set reduce by 1 element . we need to
+select n-1 elemets.hence n-1 pass in this method
