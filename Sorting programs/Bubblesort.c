@@ -14,15 +14,16 @@ int main()
     {
         printf("\t%d", array[i]);
     }
-    for (pass = 1; pass < n; pass++)
+    int pass,i,temp;
+    for(pass=0;pass<n-1;pass++)
     {
-        for (i = 0; i < n - pass; i++)
+        for(i=0;i<n-pass-1;i++)
         {
-            if (array[i] > array[i + 1])
+            if(array[i]>array[i+1])
             {
-                t = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = t;
+                temp=array[i];
+                array[i]=array[i+1];
+                array[i+1]=temp;
             }
         }
     }
