@@ -38,7 +38,6 @@ struct node*create(struct node*head)
     return head;
 }
 
-
 int getsize(struct node*head)
 {
     int count=0;
@@ -235,8 +234,6 @@ struct node*deletebyvalue(struct node*head,int num)
         }
     }
 }
-
-
 
 int input()
 {
