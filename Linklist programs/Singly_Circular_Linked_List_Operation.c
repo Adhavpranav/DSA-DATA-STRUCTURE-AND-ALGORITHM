@@ -255,77 +255,55 @@ int main()
         printf("\n1:CREATE\n2:DISPLAY\n3:SEARCH_BY_VALUE\n4:INSERT_BEGINING\n5:INSERT_MIDDLE\n6:INSERT_LAST\n7:DELETE_BEGINING\n8:DELETE_MIDDLE\n9:DELETE_END\n10:DELETE_BY_VALUE\n11:EXIT");
         printf("\nENTER YOUR CHOICE:");
         scanf("%d",&choice);
-            switch (choice)
+           if(choice==1)
             {
-            case 1: if(head==NULL)
-                    head=create(head);
-                    else
-                    printf("\nLIST ALREADY EXITS.!");
+                if(head==NULL)
+                head=create(head);
+                else
+                printf("\nLIST ALREADY EXITS.!");
+            }
+            else if(validation_of_not_null(head))
+            {
+                switch(choice)
+                {
+            case 2: display(head);
                     break;
-            case 2:if(validation_of_not_null(head))
-                    {
-                        display(head);
-                    }
-                    break;
-            case 3:if(validation_of_not_null(head))
-                    {
-                    result=search_by_value(head,input());
+            case 3: result=search_by_value(head,input());
                     if(result==-1)
                     printf("\nNUMBER IS NOT FOUND");
                     else
                     printf("\nNUMBER IS FOUND AT POSITION %d",result);
-                    }
                     break;
-            case 4:if(validation_of_not_null(head))
-                    {
-                    head=insertbeg(head,input());
-                    }
+            case 4: head=insertbeg(head,input());
                     break;
-            case 5:if(validation_of_not_null(head))
-                    {
-                        printf("\nENTER A POSITION TO INSERT A VALUE IN THAT PERTICULAR VALUE:");
-                        scanf("%d",&position);
+            case 5: printf("\nENTER A POSITION TO INSERT A VALUE IN THAT PERTICULAR VALUE:");
+                    scanf("%d",&position);
                         if(validation_of_position(head,position))
                         {
                             head=insertmid(head,input(),position);
                         }
-                    }
                     break;
-            case 6:if(validation_of_not_null(head))
-                    {
-                    head=insertlast(head,input());
-                    }
+            case 6: head=insertlast(head,input());
                     break;
-            case 7:if(validation_of_not_null(head))
-                    {
-                    head=deletebeg(head);
-                    }
+            case 7 :head=deletebeg(head);
                     break;
-            case 8:if(validation_of_not_null(head))
-                    {
-                        printf("\nENTER POSITION TO DELETE THAT PERTICULAR VALUE:");
-                        scanf("%d",&position);
+            case 8: printf("\nENTER POSITION TO DELETE THAT PERTICULAR VALUE:");
+                    scanf("%d",&position);
                         if(validation_of_position(head,position))
                         {
                             head=deletemid(head,position);
                         }
-                    }  
                     break;  
-            case 9:if(validation_of_not_null(head))
-                    { 
-                    head=deleteend(head);
-                    }
+            case 9: head=deleteend(head);
                     break;
-            case 10:if(validation_of_not_null(head))
-                    {
-                    head=deletebyvalue(head,input());
-                    }
+            case 10:head=deletebyvalue(head,input());
                     break;
             case 11:printf("\nEXIT SUCC!");
                     return 0;
             default:printf("\nINVALID CHOICE");
                 break;
             }
+        }    
     } while(choice!=11);
     
 }
